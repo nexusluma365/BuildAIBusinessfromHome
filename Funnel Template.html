@@ -33,7 +33,6 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  overflow-x: hidden;
 }
 body {
   font-family: var(--font-b);
@@ -43,10 +42,7 @@ body {
   overflow-x: hidden;
   line-height: 1.5;
 }
-.page-shell {
-  max-width: 100%;
-  transition: filter .22s ease;
-}
+.page-shell { transition: filter .22s ease; }
 body.modal-open { overflow: hidden; }
 body.modal-open .page-shell { pointer-events: none; filter: blur(1px); }
 img,
@@ -416,6 +412,7 @@ video {
   justify-content: center;
   min-height: 520px;
   position: static;
+  align-self: start;
 }
 .book-stack .bundle-label {
   width: 100%;
@@ -1325,7 +1322,12 @@ video {
 .checkout-secure i { color: var(--green); }
 
 @media (min-width: 901px) {
-  .book-stack { position: sticky; top: 24px; }
+  .book-stack {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 24px;
+    z-index: 1;
+  }
 }
 @media (max-width: 900px) {
   .s2-inner { grid-template-columns: 1fr; }
