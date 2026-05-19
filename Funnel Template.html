@@ -395,6 +395,7 @@ video {
   background: var(--white);
   padding: clamp(42px, 6vw, 60px) clamp(18px, 4vw, 28px);
   border-top: 5px solid var(--black);
+  overflow: visible;
 }
 .s2-header {
   max-width: 1040px;
@@ -414,9 +415,10 @@ video {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 520px;
   position: static;
+  align-self: start;
 }
 .book-stack .bundle-label {
   width: 100%;
@@ -1326,7 +1328,21 @@ video {
 .checkout-secure i { color: var(--green); }
 
 @media (min-width: 901px) {
-  .book-stack { position: sticky; top: 24px; }
+  .s2-inner { align-items: start; }
+  .book-stack {
+    position: sticky;
+    top: 24px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: 16px;
+    scrollbar-width: thin;
+  }
+  .book-stack::-webkit-scrollbar { width: 8px; }
+  .book-stack::-webkit-scrollbar-thumb {
+    background: rgba(46,143,216,0.35);
+    border-radius: 999px;
+  }
 }
 @media (max-width: 900px) {
   .s2-inner { grid-template-columns: 1fr; }
