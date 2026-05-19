@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "npx netlify-cli@latest dev",
+    "start": "npx netlify-cli@latest dev"
+  },
+  "dependencies": {
+    "stripe": "^16.12.0"
+  }
+}

@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remote AI Income Skills Training</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #2E8FD8;
+  --accent-dark: #1A70B8;
+  --accent-btn: #3399E0;
+  --cta-red: #E53935;
+  --cta-red-dark: #B71C1C;
+  --black: #000000;
+  --dark: #111111;
+  --dark2: #1A1A1A;
+  --dark3: #222222;
+  --white: #FFFFFF;
+  --offwhite: #F5F7FA;
+  --gray: #CCCCCC;
+  --gray2: #888888;
+  --ink: #1A1A1A;
+  --green: #4CAF50;
+  --font-h: 'Oswald', Impact, 'Arial Narrow', sans-serif;
+  --font-b: 'Open Sans', Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: var(--font-b);
+  background: var(--white);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+.page-shell {
+  max-width: 100%;
+  overflow-x: hidden;
+  transition: filter .22s ease;
+}
+body.modal-open { overflow: hidden; }
+body.modal-open .page-shell { pointer-events: none; filter: blur(1px); }
+img,
+video {
+  max-width: 100%;
+}
+
+.logo-bar {
+  background: var(--black);
+  padding: 12px clamp(18px, 4vw, 28px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-text {
+  font-family: var(--font-h);
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.logo-text span { color: var(--accent); }
+
+.s1 {
+  background: var(--dark2);
+  padding: clamp(28px, 5vw, 40px) 20px clamp(42px, 6vw, 56px);
+  text-align: center;
+}
+.s1-sub {
+  font-family: var(--font-h);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+.s1-sub-accent {
+  font-family: var(--font-h);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: block;
+}
+.s1-headline {
+  font-family: var(--font-h);
+  font-size: clamp(31px, 6vw, 52px);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: 1.08;
+  margin: 0 auto 18px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  max-width: 920px;
+  overflow-wrap: break-word;
+}
+.s1-headline .hl { color: var(--accent); }
+.s1-copy {
+  max-width: 780px;
+  margin: 0 auto 28px;
+  color: #d6d6d6;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.s1-frame {
+  width: min(100%, 760px);
+  margin: 0 auto 32px;
+  border: 4px solid #333;
+  box-shadow: 0 0 0 1px #000, 0 12px 48px rgba(0,0,0,0.7);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  background: #0d0d0d;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.s1-frame img,
+.s1-frame video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  opacity: .88;
+}
+.s1-frame video {
+  cursor: pointer;
+}
+.s1-frame-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+}
+
+.hero-proof-points {
+  max-width: 850px;
+  margin: -10px auto 26px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.hero-proof-points span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px 10px;
+  min-height: 46px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(46,143,216,0.32);
+  border-radius: 6px;
+  color: #f1f1f1;
+  font-family: var(--font-h);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  text-align: center;
+}
+.hero-proof-points i { color: var(--accent); font-size: 14px; }
+.s1-frame img[src$="ai-product-bundle.png"] {
+  object-fit: contain;
+  background: #fff;
+  opacity: 1;
+}
+.s1-frame:has(img[src$="ai-product-bundle.png"]) {
+  background: #fff;
+}
+.s1-frame:has(img[src$="ai-product-bundle.png"]) .s1-frame-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.12) 100%);
+}
+@media (max-width: 760px) {
+  .hero-proof-points { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 520px; }
+}
+@media (max-width: 600px) {
+  .hero-proof-points { grid-template-columns: 1fr; }
+  .s1,
+  .s2,
+  .s3,
+  .s4,
+  .trust-section,
+  .authority-section,
+  .guarantee-strip {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .s1 > *,
+  .s2-header,
+  .s2-inner,
+  .book-stack,
+  .s2-text {
+    max-width: calc(100vw - 40px);
+  }
+  .s1-headline,
+  .s2-h2,
+  .s3-h2,
+  .s4-h2,
+  .trust-h2,
+  .authority-h2,
+  .s1-sub,
+  .s1-sub-accent,
+  .s1-copy,
+  .s2-pre,
+  .s2-body {
+    overflow-wrap: anywhere;
+  }
+  .s1-headline { font-size: clamp(28px, 8.5vw, 36px); }
+  .s2-h2,
+  .s3-h2,
+  .s4-h2,
+  .trust-h2,
+  .authority-h2 { font-size: clamp(30px, 8vw, 36px); }
+  .btn-accent {
+    width: 100%;
+    max-width: calc(100vw - 40px);
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 17px;
+  }
+}
+@media (max-width: 480px) {
+  .hero-proof-points { grid-template-columns: 1fr; }
+}
+
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(180deg, #FF5A52 0%, #B71C1C 100%);
+  color: var(--white);
+  font-family: var(--font-h);
+  font-size: clamp(16px, 3.8vw, 22px);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 18px clamp(18px, 6vw, 52px);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-top: 2px solid rgba(255,255,255,0.28);
+  border-bottom: 3px solid rgba(0,0,0,0.4);
+  border-left: 1px solid rgba(0,0,0,0.3);
+  border-right: 1px solid rgba(0,0,0,0.3);
+  box-shadow: 0 6px 24px rgba(229,57,53,0.45), inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: transform .14s, box-shadow .14s, filter .14s;
+  width: 100%;
+  max-width: 520px;
+  min-height: 58px;
+  line-height: 1.16;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.btn-accent:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 32px rgba(229,57,53,0.6);
+}
+.btn-accent i { font-size: 18px; }
+.btn-note {
+  font-family: var(--font-b);
+  font-size: 12px;
+  color: var(--gray2);
+  margin-top: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.btn-note i { font-size: 11px; color: var(--green); }
+.final-sale-note {
+  max-width: 620px;
+  margin: 10px auto 0;
+  color: #777;
+  font-size: 11.5px;
+  line-height: 1.55;
+  text-align: center;
+}
+.final-sale-note i {
+  color: var(--accent);
+  margin-right: 4px;
+}
+
+.s2 {
+  background: var(--white);
+  padding: clamp(42px, 6vw, 60px) clamp(18px, 4vw, 28px);
+  border-top: 5px solid var(--black);
+}
+.s2-header {
+  max-width: 1040px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+.s2-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr);
+  gap: clamp(28px, 4vw, 48px);
+  align-items: start;
+}
+.book-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
+  position: static;
+}
+.book-stack .bundle-label {
+  width: 100%;
+  max-width: 560px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.book-stack .bundle-label::after { display: none; }
+.product-mockup {
+  width: min(100%, 620px);
+  background: var(--white);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 28px 60px rgba(0,0,0,0.2);
+  border: 1px solid #e6e6e6;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.product-mockup-image {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+}
+.mockup-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--font-h);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+.product-mockup-items {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+  text-align: left;
+}
+.product-mockup-items li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-b);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #333;
+  padding: 8px 10px;
+  background: #fbfbfb;
+  border-radius: 6px;
+  border: 1px solid #e8e8e8;
+}
+.product-mockup-items li i {
+  color: var(--accent);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.product-mockup-cta {
+  margin-top: 12px;
+  width: 100%;
+  max-width: none;
+  padding: 14px 18px;
+  font-size: 16px;
+  letter-spacing: .04em;
+}
+.product-mockup-cta i { font-size: 14px; }
+
+.s2-text { text-align: center; }
+.s2-pre {
+  font-family: var(--font-b);
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  text-align: center;
+}
+.s2-h2 {
+  font-family: var(--font-h);
+  font-size: clamp(36px, 5.5vw, 56px);
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: .98;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.s2-h2 span { color: var(--accent); }
+.s2-body {
+  font-family: var(--font-b);
+  font-size: 17px;
+  color: #444;
+  line-height: 1.75;
+  margin: 0 auto 24px;
+  text-align: center;
+  max-width: 940px;
+}
+.s2-body strong { color: var(--ink); font-weight: 700; }
+
+.bundle-label {
+  font-family: var(--font-h);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bundle-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+.bundle-list { list-style: none; margin-bottom: 16px; }
+.bundle-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 13px 16px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: #fbfbfb;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+  transition: background .15s, border-color .15s, transform .15s;
+}
+.bundle-item:hover {
+  background: #f0f7ff;
+  border-color: #bddcff;
+  transform: translateY(-1px);
+}
+.b-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.b-icon i { font-size: 15px; }
+.b-text { flex: 1; min-width: 0; }
+.b-text strong {
+  display: block;
+  font-family: var(--font-h);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: 1.18;
+  margin-bottom: 4px;
+}
+.b-text span {
+  font-size: 13.5px;
+  color: #555;
+  line-height: 1.48;
+}
+.b-sub-list {
+  margin-top: 7px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.b-sub-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12.5px;
+  color: #666;
+  line-height: 1.4;
+}
+.b-sub-list li i {
+  color: var(--accent);
+  font-size: 10px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.b-val {
+  margin-left: auto;
+  flex-shrink: 0;
+  min-width: 52px;
+  text-align: center;
+  font-family: var(--font-h);
+  font-size: 15px;
+  font-weight: 700;
+  color: #666;
+  text-decoration: line-through;
+  background: var(--white);
+  border: 1px solid #dedede;
+  border-radius: 999px;
+  padding: 5px 9px;
+  line-height: 1;
+}
+.bonus-label {
+  font-family: var(--font-h);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 14px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent);
+  padding: 10px 16px;
+  border-radius: 6px;
+}
+.bundle-item.is-bonus {
+  border-color: #cfe5ff;
+  background: #f5fbff;
+}
+.bundle-item.is-bonus:hover {
+  background: #edf7ff;
+  border-color: #9ccfff;
+}
+.bundle-item.is-bonus .b-icon {
+  background: linear-gradient(135deg, #48B3FF, var(--accent-dark));
+}
+.price-row {
+  background: var(--dark);
+  border-radius: 8px;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 0 auto 20px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.price-row-left,
+.price-row-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+}
+.price-row-left {
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+.price-total-label {
+  font-family: var(--font-h);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.price-total-was {
+  font-family: var(--font-h);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray2);
+  text-decoration: line-through;
+  line-height: 1.1;
+}
+.price-today-label {
+  font-family: var(--font-h);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.price-today-num {
+  font-family: var(--font-h);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: .02em;
+}
+.price-today-num sup { font-size: 22px; vertical-align: super; }
+
+.guarantee-strip {
+  background: var(--offwhite);
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 28px;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.g-icon { font-size: 38px; color: var(--green); flex-shrink: 0; }
+.g-text strong {
+  display: block;
+  font-family: var(--font-h);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  letter-spacing: .04em;
+}
+.g-text span { font-size: 13px; color: #555; }
+
+.trust-section {
+  background: var(--white);
+  padding: clamp(44px, 6vw, 60px) clamp(18px, 4vw, 28px);
+  text-align: center;
+}
+.trust-section.alt { background: var(--offwhite); }
+.trust-inner { max-width: 1040px; margin: 0 auto; }
+.trust-kicker {
+  font-family: var(--font-h);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.trust-h2 {
+  font-family: var(--font-h);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+.trust-sub {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.75;
+  max-width: 760px;
+  margin: 0 auto 28px;
+}
+.logo-wall {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-top: 22px;
+}
+.logo-tile {
+  min-height: 74px;
+  background: var(--white);
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  transition: transform .15s, border-color .15s, box-shadow .15s;
+}
+.logo-tile:hover {
+  transform: translateY(-1px);
+  border-color: #bddcff;
+  box-shadow: 0 8px 20px rgba(46,143,216,0.12);
+}
+.brand-logo-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: #202124;
+  line-height: 1;
+}
+.brand-logo-text.apple {
+  font-size: 31px;
+  letter-spacing: 0;
+}
+.brand-logo-text.samsung {
+  font-size: 18px;
+  letter-spacing: .08em;
+  color: #1428A0;
+}
+.brand-logo-text.amazon {
+  color: #111;
+}
+.brand-logo-text.microsoft {
+  font-size: 20px;
+  font-weight: 700;
+}
+.brand-logo-text.meta {
+  color: #0668E1;
+}
+.logo-note {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: #777;
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+
+.text-shot-grid.single {
+  display: grid;
+  grid-template-columns: minmax(280px, 430px);
+  justify-content: center;
+}
+.phone-shot {
+  background: var(--white);
+  border: 1px solid #e1e1e1;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 42px rgba(0,0,0,0.12);
+  text-align: left;
+}
+.phone-status {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 13px 0;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #111;
+}
+.status-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+}
+.phone-head {
+  display: grid;
+  grid-template-columns: 24px 52px 1fr 60px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.back-arrow { color: #8f2ee5; font-size: 24px; line-height: 1; }
+.phone-profile {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px #e8e8e8, 0 2px 8px rgba(0,0,0,.16);
+  background: #eee;
+}
+.phone-profile img,
+.mini-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.phone-person strong {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.05;
+  color: #111;
+}
+.phone-person span {
+  display: block;
+  margin-top: 2px;
+  color: #888;
+  font-size: 11px;
+}
+.phone-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  color: #8f2ee5;
+  font-size: 17px;
+}
+.chat-tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 8px 12px 4px;
+  color: #b7b7b7;
+  font-size: 12px;
+}
+.chat-body {
+  padding: 8px 12px 12px;
+  display: grid;
+  gap: 7px;
+  background: #fff;
+}
+.chat-line {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+.chat-line.out { justify-content: flex-end; }
+.mini-profile {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 1px #ededed;
+}
+.text-bubble {
+  max-width: 83%;
+  border-radius: 18px;
+  padding: 8px 11px;
+  font-family: Arial, sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.text-bubble.in {
+  background: #f0f0f0;
+  color: #111;
+  border-bottom-left-radius: 5px;
+}
+.text-bubble.out {
+  background: #246BFE;
+  color: #fff;
+  border-bottom-right-radius: 5px;
+}
+.phone-input {
+  display: grid;
+  grid-template-columns: 24px 24px 24px 1fr 24px;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px 12px;
+  color: #198CFF;
+  border-top: 1px solid #f4f4f4;
+}
+.fake-input {
+  height: 30px;
+  border-radius: 18px;
+  background: #f2f2f2;
+  color: #8a8a8a;
+  display: flex;
+  align-items: center;
+  padding-left: 14px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+.proof-disclaimer {
+  text-align: center;
+  color: #777;
+  font-size: 11.5px;
+  line-height: 1.6;
+  max-width: 740px;
+  margin: 16px auto 0;
+}
+
+.s3 {
+  background: var(--dark);
+  padding: clamp(44px, 6vw, 60px) clamp(18px, 4vw, 28px);
+  border-top: 5px solid var(--accent);
+  text-align: center;
+}
+.s3-kicker {
+  font-family: var(--font-h);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.s3-h2 {
+  font-family: var(--font-h);
+  font-size: clamp(34px, 5.5vw, 52px);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+.s3-h2 span { color: var(--accent); }
+.s3-sub {
+  font-family: var(--font-b);
+  font-size: 17px;
+  color: #aaa;
+  line-height: 1.7;
+  margin: 0 auto 40px;
+  max-width: 700px;
+}
+.fail-grid {
+  max-width: 980px;
+  margin: 0 auto 44px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 22px;
+  align-items: center;
+}
+.fail-card {
+  position: relative;
+  min-height: 280px;
+  padding: 44px 34px;
+  background: linear-gradient(145deg, #242424 0%, #171717 100%);
+  border: 1px solid rgba(46,143,216,0.42);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 18px 34px rgba(0,0,0,0.28);
+  transition: transform .15s, filter .15s;
+}
+.fail-card:nth-child(1),
+.fail-card:nth-child(2),
+.fail-card:nth-child(3) { grid-column: span 2; }
+.fail-card:nth-child(4) { grid-column: 2 / span 2; }
+.fail-card:nth-child(5) { grid-column: 4 / span 2; }
+.fail-card:hover { transform: translateY(-4px); filter: brightness(1.08); }
+.fail-card-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(46,143,216,0.16);
+  color: var(--accent);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.fail-card-title {
+  font-family: var(--font-h);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  margin-bottom: 8px;
+}
+.fail-card-desc {
+  max-width: 200px;
+  font-size: 12.5px;
+  color: #aaa;
+  line-height: 1.48;
+}
+.s3-solution {
+  background: rgba(46,143,216,0.1);
+  border: 1px solid rgba(46,143,216,0.3);
+  border-radius: 10px;
+  padding: 24px 28px;
+  max-width: 720px;
+  margin: 0 auto;
+  font-family: var(--font-h);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  line-height: 1.3;
+}
+.s3-solution span { color: var(--accent); }
+
+.s4 {
+  background: var(--dark2);
+  padding: clamp(46px, 6vw, 64px) clamp(18px, 4vw, 28px);
+  border-top: 5px solid var(--black);
+  text-align: center;
+}
+.s4-kicker {
+  font-family: var(--font-h);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.s4-h2 {
+  font-family: var(--font-h);
+  font-size: clamp(34px, 5.5vw, 54px);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+.s4-h2 span { color: var(--accent); }
+.s4-sub {
+  font-family: var(--font-b);
+  font-size: 17px;
+  color: #999;
+  line-height: 1.7;
+  margin: 0 auto 14px;
+  max-width: 640px;
+}
+.s4-download {
+  font-family: var(--font-b);
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 30px;
+}
+.s4-price-badge {
+  display: inline-block;
+  font-family: var(--font-h);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  background: var(--accent);
+  padding: 10px 28px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+.s4-cta-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkout-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0,0,0,0.58);
+}
+.checkout-modal.is-open { display: flex; }
+.checkout-panel {
+  position: relative;
+  width: min(96vw, 1040px);
+  max-height: 94vh;
+  overflow: hidden;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 18px 54px rgba(0,0,0,0.32);
+}
+.checkout-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.08);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.checkout-close:hover { background: rgba(0,0,0,0.14); }
+.checkout-form-wrap {
+  padding: 30px 36px 32px;
+}
+.checkout-kicker {
+  font-family: var(--font-h);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.checkout-form-wrap h3 {
+  font-family: var(--font-h);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  margin-bottom: 8px;
+}
+.checkout-copy {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.55;
+  margin-bottom: 16px;
+  max-width: 760px;
+}
+.checkout-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+  gap: 24px;
+  align-items: start;
+}
+.checkout-product-image {
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 0;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+}
+.checkout-product-image img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+}
+.checkout-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  background: #111;
+  color: var(--white);
+  border-radius: 7px;
+}
+.checkout-summary strong {
+  display: block;
+  font-family: var(--font-h);
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: 1.1;
+}
+.checkout-summary span {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  color: #aaa;
+}
+.checkout-total {
+  font-family: var(--font-h);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.checkout-form { display: grid; gap: 12px; }
+.checkout-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.checkout-form input {
+  width: 100%;
+  border: 1px solid #d4dce4;
+  border-radius: 6px;
+  padding: 13px 12px;
+  font: 600 16px var(--font-b);
+  color: var(--ink);
+  background: #fff;
+}
+.checkout-form input:focus {
+  outline: 2px solid rgba(46,143,216,0.22);
+  border-color: var(--accent);
+}
+.stripe-box {
+  display: grid;
+  gap: 6px;
+}
+#card-element {
+  min-height: 48px;
+  border: 1px solid #d4dce4;
+  border-radius: 6px;
+  padding: 14px 12px;
+  background: #fff;
+}
+#payment-message {
+  display: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #f1b9b7;
+  background: #fff5f5;
+  color: #9b1c1c;
+  font-size: 13px;
+  line-height: 1.45;
+}
+#payment-message.is-visible {
+  display: block;
+}
+#payment-message.is-success {
+  border-color: #bfe6ca;
+  background: #f3fff6;
+  color: #17652d;
+}
+.checkout-submit { margin-top: 8px; max-width: none; }
+.checkout-submit[disabled] {
+  opacity: .68;
+  cursor: not-allowed;
+  transform: none;
+}
+.checkout-secure {
+  font-size: 11.5px;
+  color: #666;
+  text-align: center;
+  line-height: 1.45;
+}
+.checkout-secure i { color: var(--green); }
+
+@media (min-width: 901px) {
+  .book-stack { position: sticky; top: 24px; }
+}
+@media (max-width: 900px) {
+  .s2-inner { grid-template-columns: 1fr; }
+  .book-stack { min-height: auto; margin-bottom: 24px; position: static; }
+  .product-mockup { margin-inline: auto; }
+  .logo-wall { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 760px) {
+  .s1-sub,
+  .s1-sub-accent {
+    font-size: 13px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .s1-frame {
+    border-width: 2px;
+    box-shadow: 0 0 0 1px #000, 0 10px 28px rgba(0,0,0,0.62);
+  }
+  .s2-pre { font-size: 19px; }
+  .s2-body { font-size: 15px; }
+  .bundle-label { font-size: 17px; }
+  .bundle-label::after { display: none; }
+  .bundle-item { gap: 10px; padding: 13px 12px; }
+  .price-row { grid-template-columns: 1fr; gap: 8px; text-align: center; }
+  .price-row-left { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 12px; }
+  .fail-grid { grid-template-columns: 1fr; max-width: 420px; gap: 16px; }
+  .fail-card,
+  .fail-card:nth-child(1),
+  .fail-card:nth-child(2),
+  .fail-card:nth-child(3),
+  .fail-card:nth-child(4),
+  .fail-card:nth-child(5) {
+    grid-column: auto;
+    min-height: auto;
+    padding: 22px 20px;
+    clip-path: none;
+    border-radius: 8px;
+  }
+  .fail-card-desc { max-width: none; }
+  .checkout-modal { padding: 14px; align-items: flex-start; overflow: auto; }
+  .checkout-panel { width: min(100%, 620px); max-height: none; overflow: auto; border-radius: 8px; }
+  .checkout-form-wrap { padding: 34px 18px 24px; }
+  .checkout-form-wrap h3 { font-size: 28px; }
+  .checkout-copy { font-size: 14px; }
+  .checkout-layout { grid-template-columns: 1fr; gap: 14px; }
+  .checkout-product-image { padding: 7px; margin-bottom: 14px; }
+}
+@media (max-width: 480px) {
+  .s1 { padding-left: 14px; padding-right: 14px; }
+  .product-mockup { padding: 12px; box-shadow: 0 18px 34px rgba(0,0,0,0.16); }
+  .product-mockup-items { grid-template-columns: 1fr; }
+  .bundle-item { display: grid; grid-template-columns: 36px 1fr; }
+  .b-val { grid-column: 2; justify-self: start; margin-left: 0; }
+  .guarantee-strip { align-items: flex-start; justify-content: flex-start; padding: 18px; }
+  .logo-wall { grid-template-columns: repeat(2, 1fr); }
+  .checkout-modal { padding: 8px; }
+  .checkout-close { top: 8px; right: 8px; background: rgba(255,255,255,0.86); }
+  .checkout-summary { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .checkout-total { font-size: 26px; }
+  .checkout-form input { font-size: 15px; padding: 13px 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page-shell">
+
+<header class="logo-bar">
+  <div class="logo-text">Remote AI <span>Income Skills</span></div>
+</header>
+
+<section class="s1">
+  <p class="s1-sub">Chatbot Agents + Voice AI Systems + Business Websites + AI Automations</p>
+  <span class="s1-sub-accent">Build Your First Sellable AI System — Then Learn How To Offer It To Businesses</span>
+
+  <h1 class="s1-headline">
+    "Learn The AI Skills That Can Help You<br>
+    <span class="hl">Build A Remote Income</span><br>
+    From Home"
+  </h1>
+
+  <p class="s1-copy">
+    Learn how to build chatbot agents, voice AI systems, business websites, automations, and client-ready AI services from home — without years of school, coding confusion, or a massive startup budget.
+  </p>
+
+  <div class="hero-proof-points" aria-label="What this training helps you learn">
+    <span><i class="fa-solid fa-robot" aria-hidden="true"></i> Build AI Agents</span>
+    <span><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> Create Voice AI Systems</span>
+    <span><i class="fa-solid fa-globe" aria-hidden="true"></i> Build Business Websites</span>
+    <span><i class="fa-solid fa-dollar-sign" aria-hidden="true"></i> Package Monthly Offers</span>
+  </div>
+
+  <div class="s1-frame">
+    <video id="hero-offer-video" playsinline autoplay loop muted preload="metadata" tabindex="0" aria-label="Voice AI offer training video. Click to mute or unmute.">
+      <source src="voice-ai-offer-hero.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="s1-frame-overlay"></div>
+  </div>
+
+  <a href="#checkout" class="btn-accent checkout-trigger">
+    <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
+    Start Learning For $47 Today
+  </a>
+  <p class="btn-note">
+    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+    Secure Checkout &nbsp;&middot;&nbsp; Instant Digital Access &nbsp;&middot;&nbsp; Beginner Friendly Training
+  </p>
+</section>
+
+<section class="s2" id="bundle">
+  <div class="s2-header">
+    <p class="s2-pre">Everything you need to start building real AI systems businesses can use...</p>
+    <h2 class="s2-h2">Build Skills. Create Systems. <span>Offer Services.</span></h2>
+    <p class="s2-body">
+      This bundle gives you a clear path to learn practical AI business skills from home. You’ll learn how to build <strong>chatbot agents, voice AI systems, business websites, automations, sales scripts, and monthly service offers</strong> so you can stop guessing and start building real solutions businesses understand.
+    </p>
+  </div>
+
+  <div class="s2-inner">
+    <div class="book-stack">
+      <div class="bundle-label"><i class="fa-solid fa-box-open" style="color:var(--accent);" aria-hidden="true"></i> Your Complete AI Skills Kit</div>
+      <div class="product-mockup">
+        <span class="mockup-badge">AI Bundle</span>
+        <img class="product-mockup-image" src="ai-product-bundle.png" alt="AI skills training product bundle with guides, playbooks, templates, resources, and bonuses" loading="lazy" decoding="async">
+        <ul class="product-mockup-items">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> AI Business Starter Guide</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Step-By-Step AI Skills Training</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Build AI Chatbot Agents</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Build Voice AI Agents</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Chatbot Agent Blueprint</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Remote Income Roadmap</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Build Business Websites</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Automation Workflows Mastery</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Recurring Income Playbook</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Sales Scripts & Client Acquisition</li>
+          <li><i class="fa-solid fa-star" aria-hidden="true"></i> BONUS: AI Workflow Templates</li>
+          <li><i class="fa-solid fa-star" aria-hidden="true"></i> BONUS: AI Tools Vault</li>
+        </ul>
+        <a href="#checkout" class="btn-accent product-mockup-cta checkout-trigger">
+          <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
+          Get Instant Access For $47
+        </a>
+        <p class="btn-note">
+          <i class="fa-solid fa-tag" aria-hidden="true"></i>
+          Instant access today for only $47.
+        </p>
+      </div>
+    </div>
+
+    <div class="s2-text">
+      <div class="bundle-label"><i class="fa-solid fa-toolbox" style="color:var(--accent);" aria-hidden="true"></i> Core Training System</div>
+      <ul class="bundle-list">
+        <li class="bundle-item">
+          <div class="b-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
+          <div class="b-text">
+            <strong>How To Build AI Chatbot Agents</strong>
+            <span>Create assistants that answer customer questions, capture leads, automate conversations, and improve response times.</span>
+          </div>
+          <div class="b-val">$97</div>
+        </li>
+
+        <li class="bundle-item">
+          <div class="b-icon"><i class="fa-solid fa-phone-volume" aria-hidden="true"></i></div>
+          <div class="b-text">
+            <strong>How To Build Voice AI Agents</strong>
+            <span>Learn how businesses use voice AI systems to answer calls, qualify leads, schedule appointments, and automate support.</span>
+          </div>
+          <div class="b-val">$97</div>
+        </li>
+
+        <li class="bundle-item">
+          <div class="b-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+          <div class="b-text">
+            <strong>How To Build Websites For Businesses</strong>
+            <span>Create modern websites designed to attract customers, build trust, generate leads, and increase conversions.</span>
+          </div>
+          <div class="b-val">$97</div>
+        </li>
+
+        <li class="bundle-item">
+          <div class="b-icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></div>
+          <div class="b-text">
+            <strong>APIs, AI Integrations & Automations</strong>
+            <span>Understand how different AI tools connect together to automate workflows and create useful business systems.</span>
+            <ul class="b-sub-list">
+              <li><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Connect forms, chat, calendars, and follow-up tools</li>
+              <li><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Build simple automations small businesses understand</li>
+            </ul>
+          </div>
+          <div class="b-val">$67</div>
+        </li>
+
+        <li class="bundle-item">
+          <div class="b-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
+          <div class="b-text">
+            <strong>Monthly Pricing & Client Communication</strong>
+            <span>Learn how people structure monthly retainers and explain AI services clearly to business owners without sounding robotic.</span>
+          </div>
+          <div class="b-val">$67</div>
+        </li>
+
+        <li class="bundle-item">
+          <div class="b-icon"><i class="fa-solid fa-comments-dollar" aria-hidden="true"></i></div>
+          <div class="b-text">
+            <strong>Sales Scripts & Client Acquisition</strong>
+            <span>Use simple scripts to explain AI services, start conversations, and show business owners why the systems matter.</span>
+          </div>
+          <div class="b-val">$47</div>
+        </li>
+      </ul>
+
+      <div class="bonus-label"><i class="fa-solid fa-gift" aria-hidden="true"></i> PLUS — Free Bonuses Included</div>
+      <ul class="bundle-list">
+        <li class="bundle-item is-bonus">
+          <div class="b-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
+          <div class="b-text">
+            <strong>BONUS #1 — AI Automation Workflow Templates</strong>
+            <span>Plug-and-play workflow ideas to save time, automate tasks, and help small businesses move faster.</span>
+          </div>
+          <div class="b-val">$97</div>
+        </li>
+
+        <li class="bundle-item is-bonus">
+          <div class="b-icon"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></div>
+          <div class="b-text">
+            <strong>BONUS #2 — AI Tools & Resources Vault</strong>
+            <span>A curated list of AI tools, resources, integrations, and platforms to help you build faster.</span>
+          </div>
+          <div class="b-val">$97</div>
+        </li>
+      </ul>
+
+      <div class="price-row">
+        <div class="price-row-left">
+          <div class="price-total-label">Total Stacked Value</div>
+          <div class="price-total-was">$569</div>
+        </div>
+        <div class="price-row-right">
+          <div class="price-today-label">Complete Course Today</div>
+          <div class="price-today-num"><sup>$</sup>47</div>
+        </div>
+      </div>
+
+      <a href="#checkout" class="btn-accent checkout-trigger">
+        <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
+        Yes — Give Me Instant Access
+      </a>
+      <p class="btn-note">
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+        Complete course access today for only $47 &nbsp;&middot;&nbsp; Instant Digital Access &nbsp;&middot;&nbsp; One-Time Payment
+      </p>
+      <p class="final-sale-note">
+        <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+        All sales are final, including duplicate purchases. Please check whether you have already purchased before ordering again.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="guarantee-strip">
+  <i class="fa-solid fa-shield-halved g-icon" aria-hidden="true"></i>
+  <div class="g-text">
+    <strong>Practical AI Skills Training</strong>
+    <span>Learn real systems businesses need: chatbots, voice AI, websites, automations, follow-up, and client communication.</span>
+  </div>
+</div>
+
+<section class="trust-section alt">
+  <div class="trust-inner">
+    <p class="trust-kicker">Meet Kennedy</p>
+    <h2 class="trust-h2">Kennedy Took Action From Home</h2>
+    <p class="trust-sub">
+      Here is Kennedy, a single mom who decided to take action instead of waiting for the perfect time. She wanted a realistic way to learn valuable work-from-home skills, and this training helped her understand how AI systems, automation, and business websites fit together. See what she had to say about learning AI skills from home.
+    </p>
+
+    <div class="text-shot-grid single">
+      <div class="phone-shot">
+        <div class="phone-status"><span>T-Mobile LTE</span><span>8:12 AM</span><span class="status-icons"><i class="fa-solid fa-signal" aria-hidden="true"></i> 12%</span></div>
+        <div class="phone-head">
+          <div class="back-arrow">&#8249;</div>
+          <div class="phone-profile"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&crop=faces&w=240&q=85" alt="Illustrative profile photo for Kennedy"></div>
+          <div class="phone-person"><strong>Kennedy</strong><span>Active now</span></div>
+          <div class="phone-actions"><i class="fa-solid fa-phone" aria-hidden="true"></i><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+        </div>
+        <div class="chat-tools"><i class="fa-solid fa-building-columns" aria-hidden="true"></i><i class="fa-regular fa-image" aria-hidden="true"></i><i class="fa-solid fa-dollar-sign" aria-hidden="true"></i><i class="fa-regular fa-clock" aria-hidden="true"></i></div>
+        <div class="chat-body">
+          <div class="chat-line"><div class="mini-profile"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&crop=faces&w=80&q=85" alt=""></div><div class="text-bubble in">I am so happy right now</div></div>
+          <div class="chat-line"><div class="mini-profile"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&crop=faces&w=80&q=85" alt=""></div><div class="text-bubble in">As a single mom I have been looking for a real work from home opportunity</div></div>
+          <div class="chat-line"><div class="mini-profile"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&crop=faces&w=80&q=85" alt=""></div><div class="text-bubble in">This training finally showed me how to build AI assistants for small businesses</div></div>
+          <div class="chat-line out"><div class="text-bubble out">That is amazing Kennedy</div></div>
+          <div class="chat-line out"><div class="text-bubble out">You took action and kept it simple</div></div>
+          <div class="chat-line"><div class="mini-profile"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&crop=faces&w=80&q=85" alt=""></div><div class="text-bubble in">I finally built my first AI demo and knew what to offer</div></div>
+          <div class="chat-line"><div class="mini-profile"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&crop=faces&w=80&q=85" alt=""></div><div class="text-bubble in">I cannot believe I actually understand how to explain this to local businesses now</div></div>
+          <div class="chat-line out"><div class="text-bubble out">Keep building the skill and keep helping businesses respond faster</div></div>
+          <div class="chat-line"><div class="mini-profile"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&crop=faces&w=80&q=85" alt=""></div><div class="text-bubble in">Thank you so much. This gave me the confidence to start building</div></div>
+        </div>
+        <div class="phone-input"><i class="fa-solid fa-plus-circle" aria-hidden="true"></i><i class="fa-solid fa-camera" aria-hidden="true"></i><i class="fa-regular fa-image" aria-hidden="true"></i><div class="fake-input">Aa</div><i class="fa-solid fa-face-smile" aria-hidden="true"></i></div>
+      </div>
+    </div>
+    <p class="proof-disclaimer">
+      Testimonial shown as an example of student-style feedback. Results vary based on effort, implementation, market, and consistency. No income is guaranteed.
+    </p>
+
+  </div>
+</section>
+
+<section class="trust-section">
+  <div class="trust-inner">
+    <p class="trust-kicker">Market Authority</p>
+    <h2 class="trust-h2">Major Businesses Are Already Using AI</h2>
+    <p class="trust-sub">
+      This training is built around a real market shift: companies are publicly adopting AI for customer service,
+      productivity, support, sales, operations, and knowledge work. These logos are market examples, not sponsors
+      or endorsements of this training.
+    </p>
+    <div class="logo-wall" aria-label="Examples of companies publicly using AI">
+      <div class="logo-tile"><span class="brand-logo-text">Google</span></div>
+      <div class="logo-tile"><span class="brand-logo-text apple">Apple</span></div>
+      <div class="logo-tile"><span class="brand-logo-text samsung">SAMSUNG</span></div>
+      <div class="logo-tile"><span class="brand-logo-text amazon">amazon</span></div>
+      <div class="logo-tile"><span class="brand-logo-text microsoft">Microsoft</span></div>
+      <div class="logo-tile"><span class="brand-logo-text meta">Meta</span></div>
+    </div>
+    <p class="logo-note">Public AI adoption examples only. These companies are not affiliated with, sponsoring, or endorsing this training.</p>
+  </div>
+</section>
+
+<section class="s3" id="why">
+  <p class="s3-kicker">The Skill Gap Is Growing</p>
+  <h2 class="s3-h2">Most People Are Watching AI Instead Of <span>Learning How To Use It</span></h2>
+  <p class="s3-sub">AI is moving fast. Businesses are automating calls, websites, follow-ups, and customer conversations. The people who learn how to build and explain these systems can position themselves ahead of the crowd.</p>
+
+  <div class="fail-grid">
+    <div class="fail-card">
+      <i class="fa-solid fa-xmark fail-card-icon" aria-hidden="true"></i>
+      <div class="fail-card-title">Fear Of Replacement</div>
+      <div class="fail-card-desc">They hear AI is taking jobs, but they do not know how to become the person using the technology instead of fearing it.</div>
+    </div>
+
+    <div class="fail-card">
+      <i class="fa-solid fa-xmark fail-card-icon" aria-hidden="true"></i>
+      <div class="fail-card-title">Do Not Understand AI</div>
+      <div class="fail-card-desc">They see new tools, headlines, and videos every day, but still cannot explain how AI systems actually help businesses.</div>
+    </div>
+
+    <div class="fail-card">
+      <i class="fa-solid fa-xmark fail-card-icon" aria-hidden="true"></i>
+      <div class="fail-card-title">No Future-Proof Skills</div>
+      <div class="fail-card-desc">They keep relying on old skills while businesses move toward automation, faster response, and AI-powered workflows.</div>
+    </div>
+
+    <div class="fail-card">
+      <i class="fa-solid fa-xmark fail-card-icon" aria-hidden="true"></i>
+      <div class="fail-card-title">Only Consume Content</div>
+      <div class="fail-card-desc">They scroll AI content for months, but never build chatbots, voice agents, websites, or automations they can show.</div>
+    </div>
+
+    <div class="fail-card">
+      <i class="fa-solid fa-xmark fail-card-icon" aria-hidden="true"></i>
+      <div class="fail-card-title">Wait Until It Is Obvious</div>
+      <div class="fail-card-desc">By the time everyone understands the opportunity, the people who started early may already have the skills, demos, and confidence.</div>
+    </div>
+  </div>
+
+  <div class="s3-solution">
+    This Training Helps You <span>Stop Watching From The Sidelines</span> And Start Building AI Systems You Can Actually Understand.
+  </div>
+</section>
+
+<section class="s4" id="cta">
+  <p class="s4-kicker">Get Instant Access Today</p>
+  <h2 class="s4-h2">Start Building The<br><span>AI Skills</span><br>Businesses Already Need</h2>
+  <p class="s4-sub">Get the complete training bundle and learn how chatbot agents, voice AI, websites, automations, monthly pricing, and client communication fit together.</p>
+  <p class="s4-download"><i class="fa-solid fa-download" style="color:var(--accent);" aria-hidden="true"></i> &nbsp;Instant Digital Access — Start Learning Today</p>
+  <div class="s4-price-badge">Complete Course Access</div>
+  <div class="s4-cta-wrap">
+    <a href="#checkout" class="btn-accent checkout-trigger">
+      <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
+      Get Instant Access For $47
+    </a>
+    <p class="btn-note" style="color:#666;">
+      <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+      Only $47 today &nbsp;&middot;&nbsp; Secure Checkout &nbsp;&middot;&nbsp; Instant Access &nbsp;&middot;&nbsp; Learn From Home
+    </p>
+    <p class="final-sale-note" style="color:#777;">
+      <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+      All sales are final. If you purchased already, please do not purchase again.
+    </p>
+  </div>
+</section>
+
+<div class="guarantee-strip">
+  <i class="fa-solid fa-shield-halved g-icon" aria-hidden="true"></i>
+  <div class="g-text">
+    <strong>Educational Training Disclaimer</strong>
+    <span>Results depend on your effort, market, offer, consistency, and implementation. This training does not guarantee income.</span>
+  </div>
+</div>
+
+</div>
+
+<div class="checkout-modal" id="checkoutModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+  <div class="checkout-panel">
+    <button class="checkout-close" type="button" aria-label="Close checkout">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+
+    <div class="checkout-form-wrap">
+      <div class="checkout-kicker">Secure Access</div>
+      <h3 id="checkoutTitle">Start Learning Today</h3>
+      <p class="checkout-copy">Get instant access to the complete AI skills bundle, bonuses, templates, and training resources.</p>
+
+      <div class="checkout-layout">
+        <div class="checkout-product-image">
+          <img src="ai-product-bundle.png" alt="AI skills training product bundle" loading="lazy" decoding="async">
+        </div>
+
+        <div class="checkout-side">
+          <div class="checkout-summary" aria-label="Order summary">
+            <div>
+              <strong>Remote AI Income Skills</strong>
+              <span>Complete course + bonuses</span>
+            </div>
+            <div class="checkout-total">$47</div>
+          </div>
+
+          <form class="checkout-form" id="access-form">
+            <label>
+              Full Name
+              <input type="text" id="customer-name" name="name" autocomplete="name" placeholder="Full name" required>
+            </label>
+
+            <label>
+              Email Address
+              <input type="email" id="customer-email" name="email" autocomplete="email" placeholder="you@example.com" required>
+            </label>
+
+            <div class="stripe-box">
+              <label for="card-element">Card Information</label>
+              <div id="card-element"></div>
+              <div id="payment-message" role="alert"></div>
+            </div>
+
+            <button class="btn-accent checkout-submit" id="submit-payment" type="submit">
+              <i class="fa-solid fa-lock" aria-hidden="true"></i>
+              Pay $47 Now
+            </button>
+
+            <p class="checkout-secure">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+              All sales are final, even if purchased twice. Please check whether you already purchased before ordering again.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const heroOfferVideo = document.querySelector('#hero-offer-video');
+  const checkoutModal = document.querySelector('#checkoutModal');
+  const checkoutTriggers = document.querySelectorAll('.checkout-trigger');
+  const checkoutClose = document.querySelector('.checkout-close');
+  const paymentForm = document.querySelector('#access-form');
+  const nameInput = document.querySelector('#customer-name');
+  const emailInput = document.querySelector('#customer-email');
+  const submitButton = document.querySelector('#submit-payment');
+  const paymentMessage = document.querySelector('#payment-message');
+
+  let stripe;
+  let elements;
+  let cardElement;
+  let clientSecret;
+  let stripeReady = false;
+
+  if (heroOfferVideo) {
+    heroOfferVideo.removeAttribute('controls');
+    const playPromise = heroOfferVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        heroOfferVideo.muted = true;
+        heroOfferVideo.play().catch(() => {});
+      });
+    }
+
+    function toggleHeroVideoMute() {
+      heroOfferVideo.muted = !heroOfferVideo.muted;
+    }
+
+    heroOfferVideo.addEventListener('click', toggleHeroVideoMute);
+    heroOfferVideo.addEventListener('keydown', (event) => {
+      if (event.key === ' ' || event.key === 'Enter') {
+        event.preventDefault();
+        toggleHeroVideoMute();
+      }
+    });
+  }
+
+  function showPaymentMessage(message, isSuccess = false) {
+    paymentMessage.textContent = message;
+    paymentMessage.classList.toggle('is-success', isSuccess);
+    paymentMessage.classList.add('is-visible');
+  }
+
+  function clearPaymentMessage() {
+    paymentMessage.textContent = '';
+    paymentMessage.classList.remove('is-visible', 'is-success');
+  }
+
+  async function initializeStripe() {
+    if (stripeReady) return;
+
+    const configResponse = await fetch('/.netlify/functions/stripe-config');
+    const config = await configResponse.json();
+
+    if (!configResponse.ok || !config.publishableKey) {
+      throw new Error(config.error || 'Stripe publishable key is not configured.');
+    }
+
+    stripe = Stripe(config.publishableKey);
+    elements = stripe.elements({
+      fonts: [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap' }]
+    });
+
+    cardElement = elements.create('card', {
+      hidePostalCode: false,
+      style: {
+        base: {
+          color: '#1A1A1A',
+          fontFamily: 'Open Sans, Arial, sans-serif',
+          fontSize: '15px',
+          fontWeight: '600',
+          '::placeholder': { color: '#8a96a3' }
+        },
+        invalid: {
+          color: '#9b1c1c',
+          iconColor: '#E53935'
+        }
+      }
+    });
+    cardElement.mount('#card-element');
+    stripeReady = true;
+  }
+
+  async function createPaymentIntent() {
+    const response = await fetch('/.netlify/functions/create-payment-intent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: nameInput.value,
+        email: emailInput.value
+      })
+    });
+    const data = await response.json();
+
+    if (!response.ok || !data.clientSecret) {
+      throw new Error(data.error || 'Unable to prepare payment.');
+    }
+
+    clientSecret = data.clientSecret;
+  }
+
+  function openCheckout(event) {
+    if (event) event.preventDefault();
+    checkoutModal.classList.add('is-open');
+    checkoutModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    heroOfferVideo?.pause();
+    nameInput?.focus();
+    initializeStripe().catch((error) => {
+      showPaymentMessage(error.message || 'Unable to load Stripe checkout.');
+    });
+  }
+
+  function closeCheckout() {
+    checkoutModal.classList.remove('is-open');
+    checkoutModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    heroOfferVideo?.play().catch(() => {});
+  }
+
+  checkoutTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', openCheckout);
+  });
+
+  checkoutClose.addEventListener('click', closeCheckout);
+  checkoutModal.addEventListener('click', (event) => {
+    if (event.target === checkoutModal) closeCheckout();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && checkoutModal.classList.contains('is-open')) closeCheckout();
+  });
+  paymentForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    clearPaymentMessage();
+
+    if (!stripeReady || !stripe || !cardElement) {
+      showPaymentMessage('Stripe checkout is still loading. Please try again in a moment.');
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Processing Payment...';
+
+    try {
+      await createPaymentIntent();
+
+      const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        receipt_email: emailInput.value,
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            name: nameInput.value,
+            email: emailInput.value
+          }
+        }
+      });
+
+      if (error) {
+        throw new Error(error.message || 'Payment failed. Please check your card details and try again.');
+      }
+
+      if (paymentIntent && paymentIntent.status === 'succeeded') {
+        showPaymentMessage('Payment successful. Check your email for your receipt and access instructions.', true);
+        submitButton.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Payment Complete';
+        return;
+      }
+
+      showPaymentMessage('Payment is processing. Please wait a moment before trying again.');
+    } catch (error) {
+      showPaymentMessage(error.message || 'Payment failed. Please try again.');
+      submitButton.disabled = false;
+      submitButton.innerHTML = '<i class="fa-solid fa-lock" aria-hidden="true"></i> Pay $47 Now';
+    }
+  });
+</script>
+
+</body>
+</html>
