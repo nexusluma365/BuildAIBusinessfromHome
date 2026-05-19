@@ -239,6 +239,8 @@ video {
     padding-right: 14px;
     font-size: 17px;
   }
+  .cta-limited-wrap { max-width: calc(100vw - 40px); }
+  .cta-limited-tag { right: 10px; top: -10px; font-size: 9px; }
 }
 @media (max-width: 480px) {
   .hero-proof-points { grid-template-columns: 1fr; }
@@ -323,6 +325,43 @@ video {
   box-shadow: 0 8px 22px rgba(229,57,53,0.25);
 }
 .limited-badge i { font-size: 12px; }
+.cta-limited-wrap {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  max-width: 520px;
+  justify-content: center;
+}
+.cta-limited-wrap .btn-accent {
+  max-width: 100%;
+}
+.cta-limited-tag {
+  position: absolute;
+  top: -12px;
+  right: 14px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border-radius: 4px;
+  background: #111;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.34);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+  font-family: var(--font-h);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.cta-limited-tag i {
+  color: #ff8a84;
+  font-size: 9px;
+}
 .price-limited-note {
   margin: 10px auto 18px;
   color: #555;
@@ -344,9 +383,6 @@ video {
 .checkout-limited-note strong {
   color: var(--cta-red-dark);
   text-transform: uppercase;
-}
-.s1 .limited-badge {
-  margin: 0 auto 14px;
 }
 .s1 .price-limited-note {
   color: #f3f3f3;
@@ -1391,11 +1427,13 @@ video {
     <div class="s1-frame-overlay"></div>
   </div>
 
-  <div class="limited-badge"><i class="fa-solid fa-clock" aria-hidden="true"></i> Limited Time Only</div>
-  <a href="#checkout" class="btn-accent checkout-trigger">
-    <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
-    Start Learning For $47 Today
-  </a>
+  <div class="cta-limited-wrap">
+    <span class="cta-limited-tag"><i class="fa-solid fa-clock" aria-hidden="true"></i> Limited Time</span>
+    <a href="#checkout" class="btn-accent checkout-trigger">
+      <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
+      Start Learning For $47 Today
+    </a>
+  </div>
   <p class="price-limited-note"><strong>Limited Time Only:</strong> $47 complete course access is available today.</p>
   <p class="btn-note">
     <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
@@ -1432,10 +1470,13 @@ video {
           <li><i class="fa-solid fa-star" aria-hidden="true"></i> BONUS: AI Workflow Templates</li>
           <li><i class="fa-solid fa-star" aria-hidden="true"></i> BONUS: AI Tools Vault</li>
         </ul>
-        <a href="#checkout" class="btn-accent product-mockup-cta checkout-trigger">
-          <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
-          Get Instant Access For $47
-        </a>
+        <div class="cta-limited-wrap">
+          <span class="cta-limited-tag"><i class="fa-solid fa-clock" aria-hidden="true"></i> Limited Time</span>
+          <a href="#checkout" class="btn-accent product-mockup-cta checkout-trigger">
+            <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
+            Get Instant Access For $47
+          </a>
+        </div>
         <p class="btn-note">
           <i class="fa-solid fa-tag" aria-hidden="true"></i>
           Instant access today for only $47.
@@ -1539,10 +1580,13 @@ video {
       </div>
       <p class="price-limited-note"><strong>Limited Time Only:</strong> the $47 course price may change after this offer window.</p>
 
-      <a href="#checkout" class="btn-accent checkout-trigger">
-        <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
-        Yes — Give Me Instant Access
-      </a>
+      <div class="cta-limited-wrap">
+        <span class="cta-limited-tag"><i class="fa-solid fa-clock" aria-hidden="true"></i> Limited Time</span>
+        <a href="#checkout" class="btn-accent checkout-trigger">
+          <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
+          Yes — Give Me Instant Access
+        </a>
+      </div>
       <p class="btn-note">
         <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
         Complete course access today for only $47 &nbsp;&middot;&nbsp; Instant Digital Access &nbsp;&middot;&nbsp; One-Time Payment
@@ -1670,13 +1714,15 @@ video {
   <h2 class="s4-h2">Start Building The<br><span>AI Skills</span><br>Businesses Already Need</h2>
   <p class="s4-sub">Get the complete training bundle and learn how chatbot agents, voice AI, websites, automations, monthly pricing, and client communication fit together.</p>
   <p class="s4-download"><i class="fa-solid fa-download" style="color:var(--accent);" aria-hidden="true"></i> &nbsp;Instant Digital Access — Start Learning Today</p>
-  <div class="limited-badge"><i class="fa-solid fa-clock" aria-hidden="true"></i> Limited Time Only</div>
   <div class="s4-price-badge">Complete Course Access</div>
   <div class="s4-cta-wrap">
-    <a href="#checkout" class="btn-accent checkout-trigger">
-      <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
-      Get Instant Access For $47
-    </a>
+    <div class="cta-limited-wrap">
+      <span class="cta-limited-tag"><i class="fa-solid fa-clock" aria-hidden="true"></i> Limited Time</span>
+      <a href="#checkout" class="btn-accent checkout-trigger">
+        <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
+        Get Instant Access For $47
+      </a>
+    </div>
     <p class="btn-note" style="color:#666;">
       <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
       Only $47 today &nbsp;&middot;&nbsp; Secure Checkout &nbsp;&middot;&nbsp; Instant Access &nbsp;&middot;&nbsp; Learn From Home
