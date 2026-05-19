@@ -306,6 +306,45 @@ video {
   color: var(--accent);
   margin-right: 4px;
 }
+.limited-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-family: var(--font-h);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  background: linear-gradient(180deg, #FF5A52 0%, #B71C1C 100%);
+  border-radius: 999px;
+  padding: 7px 13px;
+  box-shadow: 0 8px 22px rgba(229,57,53,0.25);
+}
+.limited-badge i { font-size: 12px; }
+.price-limited-note {
+  margin: -6px auto 18px;
+  color: #555;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+.price-limited-note strong {
+  color: var(--cta-red-dark);
+  text-transform: uppercase;
+}
+.checkout-limited-note {
+  margin: -4px 0 12px;
+  color: #666;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.checkout-limited-note strong {
+  color: var(--cta-red-dark);
+  text-transform: uppercase;
+}
 
 .s2 {
   background: var(--white);
@@ -1053,6 +1092,7 @@ video {
   border-radius: 6px;
   margin-bottom: 24px;
 }
+.s4 .limited-badge { margin-bottom: 12px; }
 .s4-cta-wrap {
   display: flex;
   flex-direction: column;
@@ -1346,6 +1386,7 @@ video {
     <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
     Start Learning For $47 Today
   </a>
+  <p class="price-limited-note"><strong>Limited Time Only:</strong> $47 complete course access is available today.</p>
   <p class="btn-note">
     <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
     Secure Checkout &nbsp;&middot;&nbsp; Instant Digital Access &nbsp;&middot;&nbsp; Beginner Friendly Training
@@ -1481,10 +1522,12 @@ video {
           <div class="price-total-was">$569</div>
         </div>
         <div class="price-row-right">
+          <div class="limited-badge"><i class="fa-solid fa-clock" aria-hidden="true"></i> Limited Time Only</div>
           <div class="price-today-label">Complete Course Today</div>
           <div class="price-today-num"><sup>$</sup>47</div>
         </div>
       </div>
+      <p class="price-limited-note"><strong>Limited Time Only:</strong> the $47 course price may change after this offer window.</p>
 
       <a href="#checkout" class="btn-accent checkout-trigger">
         <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
@@ -1617,6 +1660,7 @@ video {
   <h2 class="s4-h2">Start Building The<br><span>AI Skills</span><br>Businesses Already Need</h2>
   <p class="s4-sub">Get the complete training bundle and learn how chatbot agents, voice AI, websites, automations, monthly pricing, and client communication fit together.</p>
   <p class="s4-download"><i class="fa-solid fa-download" style="color:var(--accent);" aria-hidden="true"></i> &nbsp;Instant Digital Access — Start Learning Today</p>
+  <div class="limited-badge"><i class="fa-solid fa-clock" aria-hidden="true"></i> Limited Time Only</div>
   <div class="s4-price-badge">Complete Course Access</div>
   <div class="s4-cta-wrap">
     <a href="#checkout" class="btn-accent checkout-trigger">
@@ -1668,6 +1712,7 @@ video {
             </div>
             <div class="checkout-total">$47</div>
           </div>
+          <p class="checkout-limited-note"><strong>Limited Time Only:</strong> complete course access is $47 today.</p>
 
           <form class="checkout-form" id="access-form">
             <label>
