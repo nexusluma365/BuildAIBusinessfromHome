@@ -1320,6 +1320,77 @@ video {
   line-height: 1.45;
 }
 .checkout-secure i { color: var(--green); }
+.download-access-card {
+  display: none;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid #bfe6ca;
+  border-radius: 8px;
+  background: #f3fff6;
+  color: #123f20;
+}
+.download-access-card.is-visible {
+  display: grid;
+}
+.download-access-card strong {
+  display: block;
+  font-family: var(--font-h);
+  font-size: 24px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+.download-access-card span {
+  display: block;
+  margin-top: 4px;
+  color: #32643e;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.download-product-btn {
+  max-width: none;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 18px;
+  font-size: 17px;
+}
+.download-access-strip {
+  display: none;
+  background: #f3fff6;
+  border-top: 1px solid #bfe6ca;
+  border-bottom: 1px solid #bfe6ca;
+  padding: 18px clamp(18px, 4vw, 28px);
+}
+.download-access-strip.is-visible {
+  display: block;
+}
+.download-access-strip-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+}
+.download-access-strip strong {
+  display: block;
+  font-family: var(--font-h);
+  font-size: 21px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: #123f20;
+}
+.download-access-strip span {
+  display: block;
+  margin-top: 3px;
+  color: #32643e;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.download-access-strip .download-product-btn {
+  min-width: 240px;
+}
 
 @media (min-width: 901px) {
   .book-stack {
@@ -1389,6 +1460,8 @@ video {
   .checkout-summary { align-items: flex-start; flex-direction: column; gap: 8px; }
   .checkout-total { font-size: 26px; }
   .checkout-form input { font-size: 15px; padding: 13px 12px; }
+  .download-access-strip-inner { grid-template-columns: 1fr; text-align: center; }
+  .download-access-strip .download-product-btn { min-width: 0; }
 }
 </style>
 </head>
@@ -1440,6 +1513,19 @@ video {
     <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
     Secure Checkout &nbsp;&middot;&nbsp; Instant Digital Access &nbsp;&middot;&nbsp; Beginner Friendly Training
   </p>
+</section>
+
+<section class="download-access-strip" id="downloadAccessStrip" aria-live="polite">
+  <div class="download-access-strip-inner">
+    <div>
+      <strong>Your Product Access Is Unlocked</strong>
+      <span>Payment verified. You can download your AI skills bundle again from this device without paying again.</span>
+    </div>
+    <button class="btn-accent download-product-btn download-product-trigger" type="button">
+      <i class="fa-solid fa-download" aria-hidden="true"></i>
+      Download Product
+    </button>
+  </div>
 </section>
 
 <section class="s2" id="bundle">
@@ -1798,6 +1884,17 @@ video {
               All sales are final, even if purchased twice. Please check whether you already purchased before ordering again.
             </p>
           </form>
+
+          <div class="download-access-card" id="downloadAccessCard" aria-live="polite">
+            <div>
+              <strong>Payment Confirmed</strong>
+              <span>Your product access is unlocked on this device. If you refresh or come back later, this download button will show again after your payment is verified.</span>
+            </div>
+            <button class="btn-accent download-product-btn" id="downloadProductButton" type="button">
+              <i class="fa-solid fa-download" aria-hidden="true"></i>
+              Download Product
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -1815,12 +1912,18 @@ video {
   const emailInput = document.querySelector('#customer-email');
   const submitButton = document.querySelector('#submit-payment');
   const paymentMessage = document.querySelector('#payment-message');
+  const downloadAccessCard = document.querySelector('#downloadAccessCard');
+  const downloadProductButton = document.querySelector('#downloadProductButton');
+  const downloadAccessStrip = document.querySelector('#downloadAccessStrip');
+  const downloadProductTriggers = document.querySelectorAll('.download-product-trigger');
+  const ACCESS_STORAGE_KEY = 'remoteAiIncomeSkillsPaidAccess';
 
   let stripe;
   let elements;
   let cardElement;
   let clientSecret;
   let stripeReady = false;
+  let verifiedDownloadUrl = '';
 
   if (heroOfferVideo) {
     heroOfferVideo.removeAttribute('controls');
@@ -1854,6 +1957,79 @@ video {
   function clearPaymentMessage() {
     paymentMessage.textContent = '';
     paymentMessage.classList.remove('is-visible', 'is-success');
+  }
+
+  function readStoredAccess() {
+    try {
+      return JSON.parse(localStorage.getItem(ACCESS_STORAGE_KEY) || 'null');
+    } catch {
+      localStorage.removeItem(ACCESS_STORAGE_KEY);
+      return null;
+    }
+  }
+
+  function savePaidAccess(paymentIntent) {
+    localStorage.setItem(ACCESS_STORAGE_KEY, JSON.stringify({
+      paymentIntentId: paymentIntent.id,
+      clientSecret,
+      email: emailInput.value,
+      savedAt: new Date().toISOString()
+    }));
+  }
+
+  function showDownloadAccess(downloadUrl) {
+    verifiedDownloadUrl = downloadUrl;
+    paymentForm.style.display = 'none';
+    downloadAccessCard.classList.add('is-visible');
+    downloadAccessStrip.classList.add('is-visible');
+    submitButton.disabled = false;
+    submitButton.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Payment Complete';
+    showPaymentMessage('Payment confirmed. Your download is ready below.', true);
+  }
+
+  function hideDownloadAccess() {
+    verifiedDownloadUrl = '';
+    paymentForm.style.display = 'grid';
+    downloadAccessCard.classList.remove('is-visible');
+    downloadAccessStrip.classList.remove('is-visible');
+  }
+
+  async function verifyPaidAccess(storedAccess = readStoredAccess()) {
+    if (!storedAccess?.paymentIntentId || !storedAccess?.clientSecret) return false;
+
+    const response = await fetch('/.netlify/functions/verify-payment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        paymentIntentId: storedAccess.paymentIntentId,
+        clientSecret: storedAccess.clientSecret
+      })
+    });
+    const data = await response.json();
+
+    if (!response.ok || !data.downloadUrl) {
+      if (response.status === 400 || response.status === 403) {
+        localStorage.removeItem(ACCESS_STORAGE_KEY);
+        hideDownloadAccess();
+      }
+      throw new Error(data.error || 'Unable to verify previous payment.');
+    }
+
+    showDownloadAccess(data.downloadUrl);
+    return true;
+  }
+
+  function startProductDownload() {
+    if (!verifiedDownloadUrl) {
+      showPaymentMessage('Download is not ready yet. Please wait for payment verification.', false);
+      return;
+    }
+
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = verifiedDownloadUrl;
+    document.body.appendChild(iframe);
+    setTimeout(() => iframe.remove(), 15000);
   }
 
   async function initializeStripe() {
@@ -1915,6 +2091,22 @@ video {
     checkoutModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
     heroOfferVideo?.pause();
+    const storedAccess = readStoredAccess();
+    if (storedAccess) {
+      verifyPaidAccess(storedAccess)
+        .catch((error) => showPaymentMessage(error.message || 'Unable to verify previous payment.'))
+        .finally(() => {
+          if (!verifiedDownloadUrl) {
+            nameInput?.focus();
+            initializeStripe().catch((error) => {
+              showPaymentMessage(error.message || 'Unable to load Stripe checkout.');
+            });
+          }
+        });
+      return;
+    }
+
+    hideDownloadAccess();
     nameInput?.focus();
     initializeStripe().catch((error) => {
       showPaymentMessage(error.message || 'Unable to load Stripe checkout.');
@@ -1970,8 +2162,13 @@ video {
       }
 
       if (paymentIntent && paymentIntent.status === 'succeeded') {
-        showPaymentMessage('Payment successful. Check your email for your receipt and access instructions.', true);
-        submitButton.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Payment Complete';
+        savePaidAccess(paymentIntent);
+        try {
+          await verifyPaidAccess();
+        } catch (verificationError) {
+          submitButton.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Payment Complete';
+          showPaymentMessage(verificationError.message || 'Payment confirmed. Download access will appear once the product URL is configured.', true);
+        }
         return;
       }
 
@@ -1981,6 +2178,18 @@ video {
       submitButton.disabled = false;
       submitButton.innerHTML = '<i class="fa-solid fa-lock" aria-hidden="true"></i> Pay $47 Now';
     }
+  });
+
+  downloadProductButton.addEventListener('click', startProductDownload);
+  downloadProductTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', startProductDownload);
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const storedAccess = readStoredAccess();
+    if (!storedAccess) return;
+
+    verifyPaidAccess(storedAccess).catch(() => {});
   });
 </script>
 

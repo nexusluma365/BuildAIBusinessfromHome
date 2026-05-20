@@ -35,13 +35,17 @@ The checkout modal charges `$47` through Stripe using:
 
 - `netlify/functions/stripe-config.js`
 - `netlify/functions/create-payment-intent.js`
+- `netlify/functions/verify-payment.js`
 
 Set these Netlify environment variables before deployment:
 
 - `STRIPE_PUBLISHABLE_KEY`
 - `STRIPE_SECRET_KEY`
+- `PRODUCT_DOWNLOAD_URL`
 
 Use test keys for testing and live keys only when ready to accept real payments.
+
+`PRODUCT_DOWNLOAD_URL` should be the Cloudflare-hosted product file URL. After Stripe confirms a payment, the page stores the successful PaymentIntent in the buyer's browser. On refresh or return, the page verifies that PaymentIntent with Stripe before showing the download button again.
 
 ## Netlify
 
